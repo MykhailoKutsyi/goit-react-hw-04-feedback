@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import FeedbackOptions from './components/FeedbackOptions';
 import Statistics from './components/Statistics';
-import Section from './components/Section';
+import { Section } from './components/Section';
 import Notification from './components/Notification';
 
 export default function App() {
