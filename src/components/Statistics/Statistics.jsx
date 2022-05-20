@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
 import s from './Statistics.module.css';
 
-const Statistics = ({ options, total, positivePercentage }) => (
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
   <div>
     <ul className={s.FeedbackList}>
       <li key="Good" className={s.FeedbackList__item}>
         <p className={s.Feedback__text}>Good</p>
-        <p>{options[0]}</p>
-      </li>{' '}
+        <p>{good}</p>
+      </li>
       <li key="neutral" className={s.FeedbackList__item}>
         <p className={s.Feedback__text}>Neutral</p>
-        <p>{options[1]}</p>
+        <p>{neutral}</p>
       </li>
       <li key="bad" className={s.FeedbackList__item}>
         <p className={s.Feedback__text}>Bad</p>
-        <p>{options[2]}</p>
+        <p>{bad}</p>
       </li>
     </ul>
     <p className={s.total}>Total: {total}</p>
@@ -23,9 +23,11 @@ const Statistics = ({ options, total, positivePercentage }) => (
 );
 
 Statistics.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.number).isRequired,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.string.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
 
 export default Statistics;

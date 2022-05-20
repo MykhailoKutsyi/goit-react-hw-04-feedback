@@ -19,7 +19,9 @@ export default function App() {
 
   const countPositiveFeedbackPercentage = () => {
     const { good } = params;
-    return good >= 1 ? ((good / countTotalFeedback()) * 100).toFixed(0) : 0;
+    return Number(
+      good >= 1 ? ((good / countTotalFeedback()) * 100).toFixed(0) : 0
+    );
   };
 
   return (
@@ -34,7 +36,9 @@ export default function App() {
       {countTotalFeedback() !== 0 ? (
         <Section title="Statistics">
           <Statistics
-            options={Object.values(params)}
+            good={params.good}
+            neutral={params.neutral}
+            bad={params.bad}
             total={countTotalFeedback()}
             positivePercentage={countPositiveFeedbackPercentage()}
           />
